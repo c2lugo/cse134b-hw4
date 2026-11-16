@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact > Carlos Lugo</title>
+        <link rel="stylesheet" href="portfolio.css">
+    </head>
+    <body>
+        <header>
+            <h1>Contact</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="resume.html">Resume and Contact</a></li>
+                    <li><a href="experiments.html">Experiments</a></li>
+                    <li><a href="form-no-js.html">Contact Form</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="terminal" aria-labelledby="contact-heading">
+                <h2 id="contact-heading" class="terminal-bar">~/contact — send me a message</h2>
+
+                <form action="https://httpbin.org/post" method="post" class="contact-form">
+                    <div class="field">
+                        <label for="name"><span class="prompt" aria-hidden="true">$</span> Name</label>
+                        <input type="text" id="name" name="name" autocomplete="name">
+                    </div>
+
+                    <div class="field">
+                        <label for="email"><span class="prompt" aria-hidden="true">$</span> Email</label>
+                        <input type="email" id="email" name="email" autocomplete="email">
+                    </div>
+
+                    <div class="field">
+                        <label for="comments"><span class="prompt" aria-hidden="true">$</span> Comments</label>
+                        <textarea id="comments" name="comments" rows="6"></textarea>
+                    </div>
+
+                    <input type="hidden" name="possible_bot" value="true">
+
+                    <button type="submit">./send</button>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Carlos Lugo.</p>
+        </footer>
+    </body>
+</html>
