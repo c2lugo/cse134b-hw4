@@ -70,7 +70,7 @@ h1::after {
     margin-left: 0.15em;
     vertical-align: -0.12em;
     background-color: var(--text-main-color);
-    animation: blink 1s steps(1) infinite;
+    animation: blink 1s steps(1) 5;
 }
 
 @keyframes blink {
@@ -330,4 +330,34 @@ textarea:focus-visible {
     h1::after {
         animation: none;
     }
+}
+
+/* ---------- validation states ---------- */
+
+.hint {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-dim-color);
+}
+
+.required {
+    color: var(--warning-color);
+    font-size: 0.875rem;
+}
+
+/* required fields */
+.contact-form :required {
+    border-left-color: var(--accent-color);
+}
+
+/* only after the user interacts: */
+.contact-form input:user-invalid,
+.contact-form textarea:user-invalid {
+    border-color: var(--error-color);
+    border-style: dashed;
+}
+
+.contact-form input:user-valid,
+.contact-form textarea:user-valid {
+    border-color: var(--success-color);
 }
