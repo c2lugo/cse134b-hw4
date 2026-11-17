@@ -431,3 +431,63 @@ textarea:focus-visible {
     color: var(--accent-color);
     font-weight: bold;
 }
+
+/* ---------- Light Theme(Catppuccin Latte) ---------- */
+/* Dark (Mocha) is the default in :root. */
+
+:root[data-theme="light"] {
+    --background-color: #eff1f5;   /* base */
+    --surface-color: #e6e9ef;      /* mantle */
+    --bar-color: #dce0e8;          /* crust */
+    --border-color: #9ca0b0;       /* overlay0 */
+    --text-main-color: #4c4f69;    /* text */
+    --text-dim-color: #5c5f77;     /* subtext1 */
+    --accent-color: #7528d9;       /* mauve (darkened) */
+    --focus-color: #1a55d0;        /* blue (darkened) */
+    --success-color: #276e19;      /* green (darkened) */
+    --error-color: #b40c33;        /* red (darkened) */
+    --warning-color: #8a5a00;      /* yellow (darkened) */
+}
+
+/* tells the browser to draw built-in parts (scrollbars, etc.) to match */
+:root {
+    color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+    color-scheme: light;
+}
+
+/* the toggle button */
+.theme-toggle {
+    display: block;
+    margin: 0 0 1rem auto;
+    padding: 0.35em 0.9em;
+    font-size: 0.875rem;
+    background-color: transparent;
+    color: var(--text-main-color);
+    border: 2px solid var(--border-color);
+}
+
+.theme-toggle::before {
+    content: "$ ";
+    content: "$ " / "";
+    color: var(--success-color);
+}
+
+/* ---------- view transition ---------- */
+
+/* default cross-fade, slightly slower so the theme change is easy to see */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.4s;
+}
+
+/* reduced motion: no animation (theme.js also skips the transition) */
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
+}
