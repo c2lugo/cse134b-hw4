@@ -361,3 +361,73 @@ textarea:focus-visible {
 .contact-form textarea:user-valid {
     border-color: var(--success-color);
 }
+
+/* ---------- message areas ---------- */
+
+/* make the hidden attribute always wins */
+[hidden] {
+    display: none !important;
+}
+
+.form-messages {
+    display: grid;
+    gap: 1rem;
+}
+
+.message-box {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-left-width: 4px;
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+}
+
+.message-box p {
+    margin: 0;
+}
+
+.message-title {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: var(--text-dim-color);
+}
+
+/* errors */
+.error-box {
+    border-left-color: var(--error-color);
+}
+
+#error-list {
+    margin: 0.25rem 0 0;
+    padding-left: 1.25rem;
+    list-style-type: "✗ ";
+    color: var(--error-color);
+}
+
+#no-errors {
+    color: var(--success-color);
+}
+
+/* color and text change at each state */
+.info-box {
+    border-left-color: var(--focus-color);
+}
+
+.info-box[data-state="warning"] {
+    border-left-color: var(--warning-color);
+}
+
+.info-box[data-state="warning"] #char-count,
+.info-box[data-state="warning"] #char-status {
+    color: var(--warning-color);
+}
+
+.info-box[data-state="limit"] {
+    border-left-color: var(--accent-color);
+}
+
+.info-box[data-state="limit"] #char-count,
+.info-box[data-state="limit"] #char-status {
+    color: var(--accent-color);
+    font-weight: bold;
+}

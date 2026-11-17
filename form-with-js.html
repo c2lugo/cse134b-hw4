@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact (JS) > Carlos Lugo</title>
+        <link rel="stylesheet" href="portfolio.css">
+        <script src="form.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1>Contact</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="resume.html">Resume and Contact</a></li>
+                    <li><a href="experiments.html">Experiments</a></li>
+                    <li><a href="form-no-js.html">Contact (No JS)</a></li>
+                    <li><a href="form-with-js.html" aria-current="page">Contact (JS)</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="terminal" aria-labelledby="contact-heading">
+                <h2 id="contact-heading" class="terminal-bar">~/contact — send me a message</h2>
+
+                <form action="https://httpbin.org/post" method="post" class="contact-form">
+                    <p class="hint">All fields are required. Invalid fields show a dashed red border.</p>
+
+                    <div class="field">
+                        <label for="name">
+                            <span class="prompt" aria-hidden="true">$</span> Name
+                            <span class="required">(required)</span>
+                        </label>
+                        <p id="name-hint" class="hint">Max 100 characters.</p>
+                        <input type="text" id="name" name="name" autocomplete="name"
+                            required minlength="1" maxlength="100"
+                            aria-describedby="name-hint">
+                    </div>
+
+                    <div class="field">
+                        <label for="email">
+                            <span class="prompt" aria-hidden="true">$</span> Email
+                            <span class="required">(required)</span>
+                        </label>
+                        <p id="email-hint" class="hint">Format: you@example.com</p>
+                        <input type="email" id="email" name="email" autocomplete="email"
+                            required
+                            aria-describedby="email-hint">
+                    </div>
+
+                    <div class="field">
+                        <label for="comments">
+                            <span class="prompt" aria-hidden="true">$</span> Comments
+                            <span class="required">(required)</span>
+                        </label>
+                        <p id="comments-hint" class="hint">Between 10 and 1,000 characters.</p>
+                        <textarea id="comments" name="comments" rows="6"
+                            required minlength="10" maxlength="1000"
+                            aria-describedby="comments-hint"></textarea>
+                    </div>
+
+                    <!-- hidden until form.js runs, so users never see empty boxes -->
+                    <div id="form-messages" class="form-messages" hidden>
+                        <div class="message-box error-box">
+                            <p class="message-title">Errors <span aria-hidden="true">(stderr)</span></p>
+                            <div aria-live="polite">
+                                <p id="no-errors">No errors.</p>
+                                <ul id="error-list" hidden></ul>
+                            </div>
+                        </div>
+
+                        <div id="info-box" class="message-box info-box" data-state="normal">
+                            <p class="message-title">Info <span aria-hidden="true">(stdout)</span></p>
+                            <p id="char-count">1000 of 1000 characters remaining.</p>
+                            <p id="char-status" aria-live="polite"></p>
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="possible_bot" value="true">
+
+                    <button type="submit">./send</button>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Carlos Lugo.</p>
+        </footer>
+    </body>
+</html>
